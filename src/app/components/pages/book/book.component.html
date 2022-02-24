@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+input[type=text1], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+
+
+
+
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  font-family: 'Kanit', sans-serif;
+}
+input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  font-family: 'Kanit', sans-serif;
+}
+
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 50%;
+
+
+
+}
+h3{
+    font-family: 'Kanit', sans-serif;
+}
+</style>
+<body class="tr" >
+
+<h3>รายการสินค้า</h3>
+<input type="text" name="search" placeholder="Search.." class="col-md-12">
+<div class="col-md-12 ">
+   
+    <div class="h1">All Products 
+        <a routerLink="/book/add" class="btn btn-success">Add New Product</a>
+    </div>
+
+    <div class="col-md-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr *ngFor="let b of books">
+
+
+                    <td>{{ b.book_id }}</td>
+                    <td>{{ b.name }}</td>
+                    <td> <img src="{{b.img}}" alt="" width="100px" height="100px"></td>
+                    <td>{{ b.publischer }}</td>
+                    <td>{{ b.price }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" routerLink="/book/edit/{{b._id}}">
+                            Edit
+                        </a>
+                        <a class="btn btn-danger btn-sm" (click)="deleteBook(b._id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+</div>
+
+</body>
+</html>
+
+<!-- <div class="row mt-3">
+    <div class="col-md-12" style="text-align: right;">
+        <a routerLink="/product/new" class="btn btn-success">Add new product</a>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="h1">All Products</div>
+    <div class="col-md-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Unit In Stock</th>
+                    <th>Detail</th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of products; let i = index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.price }}</td>
+                    <td>{{ p.unit_in_stock }}</td>
+                    <td>
+                        <a routerLink="/product/detail/{{p._id}}" class="btn btn-primary btn-sm">
+                            Detail
+                        </a>
+                    </td>
+                    <td>
+                        <a routerLink="/product/edit/{{p._id}}" class="btn btn-info btn-sm">
+                            Edit
+                        </a> &nbsp;
+                        <a (click)="deleteProduct(p._id)" class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
